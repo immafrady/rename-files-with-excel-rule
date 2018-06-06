@@ -5,7 +5,6 @@ module.exports = class {
     }
 
     execute (options) {
-        console.log('options: ', options)
         return this.rule.replace(this.reg, (match, p0) => {
             if (options[p0]) return options[p0].trim()
         })
