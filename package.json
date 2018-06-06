@@ -9,7 +9,7 @@
   },
   "author": "Frady",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "xlsx": "^0.13.0"
   }
 }

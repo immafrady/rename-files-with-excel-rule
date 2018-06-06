@@ -3,9 +3,8 @@
 const path = require('path')
 const XLSX = require('xlsx')
 
-const basePath = path.resolve('./input/rule', 'input.xlsx')
-
-module.exports = () => {
+module.exports = (ruleFile) => {
+    const basePath = path.resolve('./input/rule', ruleFile)
     return new Promise((resolve, reject) => {
         try {
             const workBook = XLSX.readFile(basePath)
