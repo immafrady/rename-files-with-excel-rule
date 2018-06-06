@@ -4,6 +4,7 @@ const path = require('path')
 const XLSX = require('xlsx')
 
 module.exports = (ruleFile) => {
+    ruleFile = ruleFile.trim() || 'input.xlsx'
     const basePath = path.resolve('./input/rule', ruleFile)
     return new Promise((resolve, reject) => {
         try {

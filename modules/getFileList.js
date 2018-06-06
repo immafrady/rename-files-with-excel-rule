@@ -5,7 +5,6 @@ let baseDir = path.resolve('./input/src/')
 
 module.exports = () => {
     return new Promise((resolve, reject) => {
-        console.log(root)
         try {
             fs.readdir(baseDir, null, (err, files) => {
                 if (err) {

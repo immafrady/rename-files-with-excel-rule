@@ -7,10 +7,14 @@ const rl = readline.createInterface({
 
 module.exports = {
     ask: question => {
-        return new Promise(resolve => {
-            rl.question(question + ' > ' , res => {
-                resolve(res)
-            })
+        return new Promise((resolve, reject) => {
+            try {
+                rl.question(question + ' > ' , res => {
+                    resolve(res)
+                })
+            } catch (e) {
+                reject(e)
+            }
         })
     },
     clear: () => {
