@@ -1,2 +1,7 @@
-/.idea
-/node_modules
+*
+# 排除所有，除下述
+
+! *.js
+! .gitignore
+! .gitkeep
+! *.json

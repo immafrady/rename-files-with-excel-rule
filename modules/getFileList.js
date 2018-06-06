@@ -1,13 +1,18 @@
 const fs = require('fs')
+const path = require('path')
 
-const root = process.cwd()
+let baseDir = path.resolve('./input/src/')
 
 module.exports = () => {
     return new Promise((resolve, reject) => {
+        console.log(root)
         try {
-            fs.readdir(root + '/input/src/', null, (err, files) => {
-                if (err) reject(err);
-                resolve(files)
+            fs.readdir(baseDir, null, (err, files) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(files)
+                }
             })
         } catch (err) {
             reject(err)
