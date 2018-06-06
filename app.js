@@ -26,6 +26,8 @@ async function app() {
             let rules = res[0]
             let fileList = res[1]
             console.timeEnd('promise')
+            let length = fileList.length
+            let count = 0
             // 执行操作
             fileList.map(async item => {
                 // 后缀名
@@ -45,6 +47,7 @@ async function app() {
                     let newName = formatName.execute(rule[0])
                     reName(oldName, newName, extname)
                 }
+                console.log(`已完成处理文件： ${++count}/${length}`)
             })
 
             prompt.ask("所有操作皆已完成，请在 /dist/ 文件夹下找到所有重命名后的文件")
