@@ -26,9 +26,9 @@ Excel请以以下方式填写
 处理3751个文件
 
 在打印进度前提下： 耗时**30秒**
-![](./score1.PNG)
+![](https://raw.githubusercontent.com/immafrady/rename-files-with-excel-rule/dev/score1.PNG)
 不打印进度： 耗时**15秒**
-![](./score2.PNG)
+![](https://github.com/immafrady/rename-files-with-excel-rule/blob/dev/score2.PNG)
 
 ### 业务场景
 
