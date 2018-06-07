@@ -11,9 +11,10 @@ async function app() {
     await prompt.ask('请把要修改的文件放入 /input/src/ 文件夹下，完成请按回车')
     let ruleFile = await prompt.ask('Excel的文件名是什么？（包括后缀名，默认为“rule.xlsx”）')
     let rule = await prompt.ask('命名的规则是什么？（请按以模板形式写出，变量为 {{key}} 的形式）')
-    let verify = await prompt.ask('参考的参数key名是什么？')
+    let verify = await prompt.ask('参考的参数名是什么？（请按以模板形式写出，变量为 {{key}} 的形式）')
     verify = verify.trim()
     let formatName = new FormatName(rule)
+    let verifyName = new FormatName(verify)
 
     console.time('all')
     console.time('promise')
@@ -34,9 +35,11 @@ async function app() {
                 let extname = path.extname(item)
                 // oldName
                 let oldName = path.basename(item, extname)
+
                 // newName
                 let rule = rules.filter((item, idx) =>{
-                    if (oldName === item[verify].trim()) {
+                    let verName = verifyName.execute(item)
+                    if (oldName === verName) {
                         rules.splice(idx,1)
                         return true
                     } else {
