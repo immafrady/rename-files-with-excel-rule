@@ -50,10 +50,21 @@ async function app() {
                 }
                 // console.log(`已完成处理文件： ${++count}/${length}`)
             })
-
             prompt.ask("所有操作皆已完成，请在 /dist/ 文件夹下找到所有重命名后的文件")
             prompt.clear()
             console.timeEnd('all')
+            return rules
+        })
+        .then(res => {
+            if (res.length > 0) {
+                let path = './dist/_log.txt'
+                try {
+                    let str = JSON.stringify(res)
+                    fs.writeFileSync(path, str)
+                } catch (e) {
+                   console.log(e)
+                }
+            }
         })
 }
 
